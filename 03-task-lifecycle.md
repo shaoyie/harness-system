@@ -39,7 +39,7 @@
 - `status:deployed`
 
 ## 执行节奏（每轮）
-1. **Plan**：确认范围、补齐缺失上下文、写清 Issue/Task 基线
+1. **Plan**：确认范围、补齐缺失上下文、写清 Issue/Task 基线，并同步正确的 issue 状态 label
 2. **Build**：小步提交，避免一次性大改
 3. **Verify**：运行本地验证与 CI 所需检查
 4. **Review**：基于 PR / candidate branch 进行 pre-merge review
@@ -47,8 +47,9 @@
 
 ## 角色动作要求
 ### Builder
-- 开工前：fetch/pull 基线分支与工作分支最新远端状态
-- 认领任务时：更新 Issue assignee / status / branch 信息
+- 第一锚点是 Issue，而不是本地目录或聊天记录。
+- 开工前：先根据 issue 状态确认任务是否处于 `status:ready` / `status:changes-required` 等可执行状态，再 fetch/pull 基线分支与工作分支最新远端状态。
+- 认领任务时：更新 Issue assignee / status / branch 信息（通常切到 `status:in-progress`）。
 - 提交 review 前：
   - push candidate branch
   - 创建/更新 PR
